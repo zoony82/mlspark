@@ -10,7 +10,7 @@ import org.apache.spark.sql.{SparkSession, DataFrame, Row}
 import org.apache.spark.sql.types._
 import org.apache.spark.sql.functions._
 
-object titanic_randomfore {
+object Titanic_randomfore {
 
   def main(args: Array[String]): Unit = {
     Logger.getLogger("org").setLevel(Level.WARN)

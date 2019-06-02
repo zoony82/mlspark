@@ -9,7 +9,7 @@ import org.apache.spark.sql.functions.avg
 import org.apache.spark.sql.types.{IntegerType, DoubleType}
 
 
-object titanic_decision {
+object Titanic_decision {
   def main(args: Array[String]): Unit = {
 
 //    if (args.length < 3) {
