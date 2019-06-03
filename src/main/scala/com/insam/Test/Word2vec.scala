@@ -90,28 +90,28 @@ object Word2vec extends App{
   word2vecModel.findSynonyms("london",4)
 
   def wordFeatures(words: Iterable[String]): Iterable[Vector] = words.map(w => Try(word2vecModel.transform(w))).filter(_.isSuccess).map(_.get)
-
-  def avgWordFeatures(wordFeatures: Iterable[Vector]): Vector = Vectors.fromBreeze(wordFeatures.map(_.toBreeze).reduceLeft(_ + _) / wordFeatures.size.toDouble)
-
-  // Create a feature vectors
-  val wordFeaturePair = reviewWordsPairs mapValues wordFeatures
-  val avgWordFeaturesPair = wordFeaturePair mapValues avgWordFeatures
-  val featuresPair = avgWordFeaturesPair join samplePairs mapValues {
-    case (features, Sample(id, review, sentiment)) => LabeledPoint(sentiment.get.toDouble, features)
-  }
-  val trainingSet = featuresPair.values
-
-  // Classification
-  println("String Learning and evaluating models")
-  val Array(x_train, x_test) = trainingSet.randomSplit(Array(0.7, 0.3))
-  val model = SVMWithSGD.train(x_train, 100)
-
-  val result = model.predict(x_test.map(_.features))
-
-  println(s"10 samples:")
-  x_test.map { case LabeledPoint(label, features) => s"$label -> ${model.predict(features)}" } take 10 foreach println
-  val accuracy = x_test.filter(x => x.label == model.predict(x.features)).count.toFloat / x_test.count
-  println(s"Model Accuracy: $accuracy")
+//
+//  def avgWordFeatures(wordFeatures: Iterable[Vector]): Vector = Vectors.fromBreeze(wordFeatures.map(_.toBreeze).reduceLeft(_ + _) / wordFeatures.size.toDouble)
+//
+//  // Create a feature vectors
+//  val wordFeaturePair = reviewWordsPairs mapValues wordFeatures
+//  val avgWordFeaturesPair = wordFeaturePair mapValues avgWordFeatures
+//  val featuresPair = avgWordFeaturesPair join samplePairs mapValues {
+//    case (features, Sample(id, review, sentiment)) => LabeledPoint(sentiment.get.toDouble, features)
+//  }
+//  val trainingSet = featuresPair.values
+//
+//  // Classification
+//  println("String Learning and evaluating models")
+//  val Array(x_train, x_test) = trainingSet.randomSplit(Array(0.7, 0.3))
+//  val model = SVMWithSGD.train(x_train, 100)
+//
+//  val result = model.predict(x_test.map(_.features))
+//
+//  println(s"10 samples:")
+//  x_test.map { case LabeledPoint(label, features) => s"$label -> ${model.predict(features)}" } take 10 foreach println
+//  val accuracy = x_test.filter(x => x.label == model.predict(x.features)).count.toFloat / x_test.count
+//  println(s"Model Accuracy: $accuracy")
 
   println("<---- done")
   Thread.sleep(10000)
