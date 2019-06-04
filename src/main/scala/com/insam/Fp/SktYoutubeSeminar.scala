@@ -64,7 +64,7 @@ object SktYoutubeSeminar {
     }
   }
 
-  def PatialFunctionTest(): Unit ={
+  def patialFunctionTest(): Unit ={
     //https://knight76.tistory.com/entry/scala-%EB%B6%80%EB%B6%84-%ED%95%A8%EC%88%98-%EC%BB%A4%EB%A7%81
     val one:PartialFunction[Int,String]={
       case 1 => "one"
@@ -74,6 +74,42 @@ object SktYoutubeSeminar {
     println(one.isDefinedAt(2))
     println(one(1))
 //    println(one(2))
+  }
+
+  def patialAppliedFunctionTest(): Unit ={
+    //https://knight76.tistory.com/entry/scala-%EB%B6%80%EB%B6%84-%ED%95%A8%EC%88%98-%EC%BB%A4%EB%A7%81
+    def plus(a:Int,b:Int) : Int = {a+b}
+
+    val plus10 = plus(10,_)
+    println(plus10(5))
+
+  }
+
+  def curringTest(): Unit ={
+    //https://knight76.tistory.com/entry/scala-%EB%B6%80%EB%B6%84-%ED%95%A8%EC%88%98-%EC%BB%A4%EB%A7%81
+    def plus(a:Int)(b:Int): Int = {a+b}
+
+    val plus5 = plus(5)(_)
+    println(plus5(10))
+
+  }
+
+  def dropWhile(): Unit ={
+    val test = List(2,4,5,6,7,8)
+    println(test.filter(v => v % 2 == 0)) // 짝수 찾기
+    println(test.filter(v => v % 2 == 1)) // 홀수 찾기
+    println(test.dropWhile(v => v % 2 == 0)) // 짝수 찾기
+    println(test.dropWhile(v => v % 2 == 1)) // 홀수 찾기
+  }
+
+  def groupby():Unit={
+    val test = List(1,2,3,4,5,6,7)
+    println(test.groupBy(v => v % 2))
+  }
+
+  def fold():Unit={
+    val test = List(1,2,3,4,5,6,7)
+    println(test.foldLeft(0)( (a:Int,b:Int) => a+b))
   }
 
 
@@ -97,13 +133,22 @@ object SktYoutubeSeminar {
 
     println("부분함수")
     // 부분함수와 혼동하지 말자 : https://m.blog.naver.com/PostView.nhn?blogId=jjoommnn&logNo=220292065520&proxyReferer=https%3A%2F%2Fwww.google.com%2F
-    PatialFunctionTest()
+    patialFunctionTest()
 
     println("부분적용함수")
-    // todo : https://www.youtube.com/watch?v=OuR2mTnxIVA&t=24s
+    patialAppliedFunctionTest()
 
+    println("부분적용함수 => 커링") // Currying : 인자가 여러개 있는 함수를 하나의 인자를 가진 함수의 체인형태로 만들어 주는 것.
+    curringTest()
 
+    println("Collection => dropWhile")
+    dropWhile()
 
+    println("Collection => groupby")
+    groupby()
+
+    println("Collection => fold") // 꼬리재귀는 일반적으로 fold로 변경 가능하다
+    fold()
 
   }
 }
