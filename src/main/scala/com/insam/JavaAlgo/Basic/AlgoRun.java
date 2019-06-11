@@ -1,5 +1,7 @@
 package com.insam.JavaAlgo.Basic;
 
+import java.util.Arrays;
+
 public class AlgoRun {
 	
 	
@@ -16,13 +18,13 @@ public class AlgoRun {
 //		intResult = binary.solution(3015);
 //		System.out.println(intResult);
 //
-		// 2. Arrays
-		// 정수의 배열에서 홀수로 존재하는 정수를 찾아내라
-		System.out.println("OddOccurencesInArray");
-		OddOccurencesInArray odd = new OddOccurencesInArray();
-		int [] array1 = {9, 3, 9, 3, 9, 7, 9, 8};
-		intResult = odd.solution(array1);
-		System.out.println(intResult);
+//		// 2. Arrays
+//		// 정수의 배열에서 홀수로 존재하는 정수를 찾아내라
+//		System.out.println("OddOccurencesInArray");
+//		OddOccurencesInArray odd = new OddOccurencesInArray();
+//		int [] array1 = {9, 3, 9, 3, 9, 7, 9, 8};
+//		intResult = odd.solution(array1);
+//		System.out.println(intResult);
 //
 //		// 2. Arrays
 //		// 정수의 배열을 K만큰 오른쪽으로 돌려라
@@ -31,14 +33,14 @@ public class AlgoRun {
 //		int[] retArray = cycleRotate.solution(temp,3);
 //		System.out.print(Arrays.toString(retArray));
 //
+
 //
-//
-//		// 3. Time Complexity
-//		// 1부터 시작되는 정수들의 배열에서, 딱 1개 숫자가 등장하지 않음, 그걸 찾아라
-//		PermMissingElem missing = new PermMissingElem();
-//		int[] temp = {2,3,5,6,1};
-//		int ret = missing.solution(temp);
-//		System.out.print(String.valueOf(ret));
+		// 3. Time Complexity
+		// 1부터 시작되는 정수들의 배열에서, 딱 1개 숫자가 등장하지 않음, 그걸 찾아라
+		PermMissingElem missing = new PermMissingElem();
+		int[] temp = {2,3,5,6,1};
+		int ret = missing.solution(temp);
+		System.out.print(ret);
 //
 //		// 3. Time Complexity
 //		// 정수 배열을 두 구간으로 쪼갯을 때, 구간별 합의 차가 가장 적은 곳 찾기
