@@ -28,13 +28,13 @@ object Word2vec extends App{
 
   // Load
   /*
-  train = pd.read_csv('/home/insam/09_data/bagofwords/labeledTrainData.tsv', header=0, delimiter="\t", quoting=3)
-  test = pd.read_csv('/home/insam/09_data/bagofwords/testData.tsv', header=0, delimiter="\t", quoting=3)
-  unlabeled_train = pd.read_csv('/home/insam/09_data/bagofwords/unlabeledTrainData.tsv', header=0, delimiter="\t", quoting=3)
+  train = pd.read_csv('/home/jjh/문서/dataset/bagofwords/labeledTrainData.tsv', header=0, delimiter="\t", quoting=3)
+  test = pd.read_csv('/home/jjh/문서/dataset/bagofwords/testData.tsv', header=0, delimiter="\t", quoting=3)
+  unlabeled_train = pd.read_csv('/home/jjh/문서/dataset/bagofwords/unlabeledTrainData.tsv', header=0, delimiter="\t", quoting=3)
 
    */
-  val trainPath = s"/home/insam/09_data/bagofwords/labeledTrainData.tsv"
-  val testPath = s"/home/insam/09_data/bagofwords/testData.tsv"
+  val trainPath = s"/home/jjh/문서/dataset/bagofwords/labeledTrainData.tsv"
+  val testPath = s"/home/jjh/문서/dataset/bagofwords/testData.tsv"
 
   // Load text
   def skipHeaders(idx:Int, iter:Iterator[String]) = if(idx == 0) iter.drop(1) else iter
