@@ -5,7 +5,7 @@ import org.apache.spark.ml.stat.Correlation
 import org.apache.spark.sql.Row
 
 
-object Correlation {
+object CorrelationTest {
   // https://spark.apache.org/docs/2.3.0/ml-statistics.html
   // https://gomguard.tistory.com/173
   // https://alphahackerhan.tistory.com/20
@@ -33,32 +33,31 @@ object Correlation {
   println(s"Spearman correlation matrix:\n $coeff2")
 
 
-
-  val data2 = Seq(
-    Vectors.dense(1,2,3,4),
-    Vectors.dense(5,4,3,2),
-    Vectors.dense(5,0,0,0),
-    Vectors.dense(12,14,16,20)
-  )
-  val df2 = data2.map(Tuple1.apply).toDF("feat")
-  df2.show()
-  val result = Correlation.corr(df2,"feat").head
-  println(result)
-
-
+  if(true){
+    val data2 = Seq(
+      Vectors.dense(1,2,3,4),
+      Vectors.dense(5,4,3,2),
+      Vectors.dense(5,0,0,0),
+      Vectors.dense(12,14,16,20)
+    )
+    val df2 = data2.map(Tuple1.apply).toDF("feat")
+    df2.show()
+    val result = Correlation.corr(df2,"feat").head
+    println(result)
 
 
-  val data2 = Seq(
-    Vectors.dense(1,20,0,-10),
-    Vectors.dense(5,40,0,-20),
-    Vectors.dense(7,76,0,-40),
-    Vectors.dense(12,90,0,-70),
-    Vectors.dense(12,1000,0,-90)
-  )
-  val df2 = data2.map(Tuple1.apply).toDF("feat")
-  df2.show()
-  val result = Correlation.corr(df2,"feat").head
 
 
+    val data3 = Seq(
+      Vectors.dense(1,20,0,-10),
+      Vectors.dense(5,40,0,-20),
+      Vectors.dense(7,76,0,-40),
+      Vectors.dense(12,90,0,-70),
+      Vectors.dense(12,1000,0,-90)
+    )
+    val df3 = data3.map(Tuple1.apply).toDF("feat")
+    df2.show()
+    val result1 = Correlation.corr(df3,"feat").head
+  }
 
 }
