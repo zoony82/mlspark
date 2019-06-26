@@ -5,7 +5,8 @@ import org.apache.spark.ml.stat.Correlation
 import org.apache.spark.sql.Row
 
 
-object CorrelationTest {
+object StatCorrelationTest {
+  // 상관관계 분석 테스트 : 각 값이 변하는 정도가 얼마나 유사한가
   // https://spark.apache.org/docs/2.3.0/ml-statistics.html
   // https://gomguard.tistory.com/173
   // https://alphahackerhan.tistory.com/20
@@ -25,6 +26,7 @@ object CorrelationTest {
   val df = data.map(Tuple1.apply).toDF("features")
   df.show()
 
+  // 4개 컬럼에대한 상관관계
   val Row(coeff1:Matrix) = Correlation.corr(df, "features").head
 
   val Row(coeff2: Matrix) = Correlation.corr(df, "features", "spearman").head
@@ -56,8 +58,23 @@ object CorrelationTest {
       Vectors.dense(12,1000,0,-90)
     )
     val df3 = data3.map(Tuple1.apply).toDF("feat")
-    df2.show()
+    df3.show()
     val result1 = Correlation.corr(df3,"feat").head
+    println(result1) // 1,5,7,12,12 와 -10,-20,-40,-70,-90 은 음의 상관관계가 매우 큼
+
+
+    val data4 = Seq(
+      Vectors.dense(1,20,0,-10, 0),
+      Vectors.dense(5,40,0,-20, 0),
+      Vectors.dense(7,76,0,-40, 0),
+      Vectors.dense(12,90,0,-70, 0),
+      Vectors.dense(12,1000,0,-90, 0)
+    )
+    val df4 = data4.map(Tuple1.apply).toDF("feat")
+    df4.show()
+    val result4 = Correlation.corr(df4,"feat").head
+    println(result4) // 5개 컬럼별 비교, 왜 행단위의 비교가 아니라, 벡터의 같은 순서간 비교인지 이해가 안되긴 하네...
+
   }
 
 }

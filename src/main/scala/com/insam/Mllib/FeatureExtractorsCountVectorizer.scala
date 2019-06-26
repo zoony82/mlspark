@@ -4,6 +4,7 @@ import org.apache.spark.sql.{ SparkSession}
 import org.apache.spark.ml.feature.{CountVectorizer}
 
 object FeatureExtractorsCountVectorizer {
+  // CountVector : 문서를 token count matrix로 변환
   def main(args: Array[String]): Unit = {
     val spark = SparkSession.builder().master("local").getOrCreate()
 

@@ -4,6 +4,9 @@ import org.apache.spark.sql.SparkSession
 import org.apache.spark.ml.feature.{HashingTF, IDF, Tokenizer}
 
 object FeatureExtractorsTF_IDF {
+  //tf-idf
+  //tf : 문서에서 해당 단어가 얼마나 나왔는가
+  //idf : 전체 문서들에서, 몇 개의 문서에 나타났는가(해당 단어가 나타난 문서 수/ 전체 문서 수)
   def main(args: Array[String]): Unit = {
 
     val spark = SparkSession.builder().master("local").getOrCreate()

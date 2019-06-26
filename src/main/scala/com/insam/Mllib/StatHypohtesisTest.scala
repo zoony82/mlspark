@@ -3,7 +3,8 @@ package com.insam.Mllib
 import org.apache.spark.ml.linalg.{Vectors,Vector}
 import org.apache.spark.ml.stat.ChiSquareTest
 
-object HypohtesisTest {
+object StatHypohtesisTest {
+  // 가설검증 : 카이제곱검정 - 그룹간 차이가 있는지(=그룹끼리 독립이 아닌지의 여부) 가설검정 하는 방법
   def main(args: Array[String]): Unit = {
 
     val spark = org.apache.spark.sql.SparkSession.builder().master("local").appName("mllibTest").getOrCreate()

@@ -6,6 +6,7 @@ import org.apache.spark.sql.Row
 import org.apache.spark.ml.linalg.Vector
 
 object FeatureExtractorsW2V {
+  //W2V : 문자를 특정 차원에서의 위치를 부여함
   def main(args: Array[String]): Unit = {
     val spark = SparkSession.builder().master("local").getOrCreate()
 
