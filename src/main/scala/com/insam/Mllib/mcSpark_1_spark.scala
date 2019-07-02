@@ -18,7 +18,11 @@ object mcSpark_1_spark {
 
   user_data.registerTempTable("users")
 
-  spark.sql("select * from users").show()
+  spark.sql("select * from users where _c1>40").show()
+
+
+
+
 
 
 }
