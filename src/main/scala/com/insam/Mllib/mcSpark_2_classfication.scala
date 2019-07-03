@@ -4,7 +4,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.mllib.regression.LabeledPoint
 import org.apache.spark.mllib.linalg.Vectors
 
-object mcSpark_2 {
+object mcSpark_2_classfication {
   /*
   yarn을 통해 프로세스 제거 가능
   yarn application -kill application_1561948442730_0008
@@ -407,7 +407,7 @@ object mcSpark_2 {
   */
 
 
-  // 어떤 변수에 영햐을 많이 받았는지 확인해보자.
+  // 어떤 변수에 영향을 많이 받았는지 확인해보자.
   data.first()
   val dtModel_ = DecisionTree.train(data, Algo.Classification, Entropy, 20)
   dtModel_.toDebugString
