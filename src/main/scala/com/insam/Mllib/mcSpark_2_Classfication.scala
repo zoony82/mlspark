@@ -4,7 +4,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.mllib.regression.LabeledPoint
 import org.apache.spark.mllib.linalg.Vectors
 
-object mcSpark_2_classfication {
+object mcSpark_2_Classfication {
   /*
   yarn을 통해 프로세스 제거 가능
   yarn application -kill application_1561948442730_0008
