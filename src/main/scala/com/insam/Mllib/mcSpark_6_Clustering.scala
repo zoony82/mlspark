@@ -142,15 +142,14 @@ object mcSpark_6_Clustering {
     //   # Runs : how many times
     //   # Epsilon : minimum movement centeroid
 
-    val data = rawData.map { line =>
+    val data2 = rawData.map{ line =>
       val buffer = line.split(',').toBuffer
       buffer.remove(1, 3)
       buffer.remove(buffer.length - 1)
-      Vectors.dense(buffer.map(_.toDouble).toArray)
-    }.cache()
+      Vectors.dense(buffer.map(_.toDouble).toArray)}.cache()
 
     // 5씩 증가시키면서 테스트
-    (5 to 30 by 5).map(k => (k, clusteringScore(data, k))).foreach(println)
+    (5 to 30 by 5).map(k => (k, clusteringScore(data2, k))).foreach(println)
     /* 섬오브스퀘어 값이... 15에서 더이상 진전이 없는듯
     (5,1883.6167369867283)
     (10,1779.2255842349878)
@@ -160,7 +159,7 @@ object mcSpark_6_Clustering {
     (30,1548.760591524399)
      */
 
-    (30 to 100 by 10).par.map(k => (k, clusteringScore2(data, k))).toList.foreach(println)
+    (30 to 100 by 10).par.map(k => (k, clusteringScore2(data2, k))).toList.foreach(println)
 
     /*
     (30,1529.5099752810656)
@@ -172,30 +171,30 @@ object mcSpark_6_Clustering {
     (90,1530.285185232871)
     (100,910.8536048998116)
      */
-    data.unpersist()
+    data2.unpersist()
 
 
     //# R Visualization #########################################################
-    val data = rawData.map { line =>
+    val data3 = rawData.map { line =>
       val buffer = line.split(',').toBuffer
       buffer.remove(1, 3)
       buffer.remove(buffer.length - 1)
       Vectors.dense(buffer.map(_.toDouble).toArray)
     }.cache()
 
-    val kmeans = new KMeans()
-    kmeans.setK(100)
-    kmeans.setRuns(1)
-    kmeans.setEpsilon(1.0e-6)
-    val model = kmeans.run(data)
+    val kmeans3 = new KMeans()
+    kmeans3.setK(100)
+    kmeans3.setRuns(1)
+    kmeans3.setEpsilon(1.0e-6)
+    val model3 = kmeans3.run(data3)
 
-    val sample = data.map(datum =>
-      model.predict(datum) + "," + datum.toArray.mkString(",")
+    val sample = data3.map(datum =>
+      model3.predict(datum) + "," + datum.toArray.mkString(",")
     ).sample(false, 0.05)
 
     sample.saveAsTextFile("hdfs://hatest/user/hadoop/rvis")
 
-    data.unpersist()
+    data3.unpersist()
 
 
     // 비정상 데이터를 찾자

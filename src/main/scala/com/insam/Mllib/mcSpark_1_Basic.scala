@@ -2,7 +2,7 @@ package com.insam.Mllib
 
 import org.apache.spark.{SparkConf, SparkContext}
 
-object mcSpark_1_sc {
+object mcSpark_1_Basic {
   def main(args: Array[String]): Unit = {
     /*
   /usr/hdp/2.6.1.0-129/spark2/bin/spark-shell --master yarn-client --num-execu--executor-memory 512M
