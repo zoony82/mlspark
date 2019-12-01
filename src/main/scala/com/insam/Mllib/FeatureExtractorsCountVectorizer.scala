@@ -1,7 +1,9 @@
 package com.insam.Mllib
 
-import org.apache.spark.sql.{ SparkSession}
-import org.apache.spark.ml.feature.{CountVectorizer}
+import org.apache.spark.sql.SparkSession
+import org.apache.spark.ml.feature.CountVectorizer
+import org.apache.spark.sql.expressions.Window
+import org.apache.spark.sql.functions._
 
 object FeatureExtractorsCountVectorizer {
   // CountVector : 문서를 token count matrix로 변환
@@ -26,6 +28,23 @@ object FeatureExtractorsCountVectorizer {
     result.show()
 
     result.collect().foreach(v=>println(v))
+
+    //count the frequency of words
+    import spark.implicits._
+    val result_cnt = result.withColumn("words_explode",explode($"words")).
+      groupBy($"words_explode").
+      agg(count($"words_explode").as("counts"))
+
+    result_cnt.show()
+
+    val result_id = result_cnt.
+      withColumn("id",row_number().over(Window.orderBy("words_explode")) -1)
+
+    result_id.show()
+
+    //
+    countVectorizerModel.vocabulary
+
 
   }
 }

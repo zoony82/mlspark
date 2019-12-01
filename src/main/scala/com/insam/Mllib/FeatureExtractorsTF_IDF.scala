@@ -38,5 +38,14 @@ object FeatureExtractorsTF_IDF {
     reScaleData.select("words","rawFeatures","features").toJSON.foreach(println(_))
     // spark 문자열을 추가할 수록 english 의 tf-idf값이 올라감
 
+    //https://stackoverflow.com/questions/35205865/what-is-the-difference-between-hashingtf-and-countvectorizer-in-spark/42200215
+    /*
+    partially reversible (CountVectorizer) vs irreversible (HashingTF) - since hashing is not reversible you cannot restore original input from a hash vector. From the other hand count vector with model (index) can be used to restore unordered input. As a consequence models created using hashed input can be much harder to interpret and monitor.
+    memory and computational overhead - HashingTF requires only a single data scan and no additional memory beyond original input and vector. CountVectorizer requires additional scan over the data to build a model and additional memory to store vocabulary (index). In case of unigram language model it is usually not a problem but in case of higher n-grams it can be prohibitively expensive or not feasible.
+    hashing depends on a size of the vector , hashing function and a document. Counting depends on a size of the vector, training corpus and a document.
+    a source of the information loss - in case of HashingTF it is dimensionality reduction with possible collisions. CountVectorizer discards infrequent tokens.
+    How it affects downstream models depends on a particular use case and data.
+     */
+
   }
 }

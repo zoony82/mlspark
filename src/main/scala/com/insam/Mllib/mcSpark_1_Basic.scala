@@ -20,7 +20,7 @@ object mcSpark_1_Basic {
 
 
 
-    val conf:SparkConf = new SparkConf().setAppName("Histogram").setMaster("local")
+    val conf:SparkConf = new SparkConf().setAppName("Histogram").setMaster("local[4]")
     val sc= new SparkContext(conf)
     //  sc.parallelize(List(1,2,3))
 
@@ -32,7 +32,7 @@ object mcSpark_1_Basic {
 
 
     //07.02 무비렌즈 데이터
-    val movie_data = sc.textFile("D:\\ml-100k\\u.item")
+    val movie_data = sc.textFile("/home/jjh/문서/dataset/ml-100k/u.item")
 
     def convert_year(x:String) : String = (
       try{
