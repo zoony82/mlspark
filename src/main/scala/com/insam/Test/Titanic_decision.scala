@@ -26,7 +26,7 @@ object Titanic_decision {
       .getOrCreate()
     import spark.implicits._
 
-    val trainFilePath = "/home/insam/09_data/Titanic_Disater/train.csv"
+    val trainFilePath = "/home/jjh/문서/dataset/titanic/train.csv"
     val titanicTrain = spark
       .read
       .option("header", "true")
@@ -65,7 +65,7 @@ object Titanic_decision {
 
     val model = pipeline.fit(imputedTitanicTrain)
 
-    val testFilePath = "/home/insam/09_data/Titanic_Disater/test.csv"
+    val testFilePath = "/home/jjh/문서/dataset/titanic/test.csv"
     val titanicTest = spark
       .read
       .option("header", "true")
@@ -83,7 +83,7 @@ object Titanic_decision {
 
     val predictions = model.transform(imputedTitanicTest)
 
-    val outputPath = "/home/insam/09_data/Titanic_Disater/Result_DC"
+    val outputPath = "/home/jjh/문서/dataset/titanic/Result_DC"
     predictions
       .select($"PassengerId", $"prediction".cast(IntegerType).alias("Survived"))
       .coalesce(1)

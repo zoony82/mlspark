@@ -1,0 +1,53 @@
+https://www.kdd.org/kdd-cup/view/kdd-cup-1999/Data
+back,buffer_overflow,ftp_write,guess_passwd,imap,ipsweep,land,loadmodule,multihop,neptune,nmap,normal,perl,phf,pod,portsweep,rootkit,satan,smurf,spy,teardrop,warezclient,warezmaster.
+duration: continuous.
+protocol_type: symbolic.
+service: symbolic.
+flag: symbolic.
+src_bytes: continuous.
+dst_bytes: continuous.
+land: symbolic.
+wrong_fragment: continuous.
+urgent: continuous.
+hot: continuous.
+num_failed_logins: continuous.
+logged_in: symbolic.
+num_compromised: continuous.
+root_shell: continuous.
+su_attempted: continuous.
+num_root: continuous.
+num_file_creations: continuous.
+num_shells: continuous.
+num_access_files: continuous.
+num_outbound_cmds: continuous.
+is_host_login: symbolic.
+is_guest_login: symbolic.
+count: continuous.
+srv_count: continuous.
+serror_rate: continuous.
+srv_serror_rate: continuous.
+rerror_rate: continuous.
+srv_rerror_rate: continuous.
+same_srv_rate: continuous.
+diff_srv_rate: continuous.
+srv_diff_host_rate: continuous.
+dst_host_count: continuous.
+dst_host_srv_count: continuous.
+dst_host_same_srv_rate: continuous.
+dst_host_diff_srv_rate: continuous.
+dst_host_same_src_port_rate: continuous.
+dst_host_srv_diff_host_rate: continuous.
+dst_host_serror_rate: continuous.
+dst_host_srv_serror_rate: continuous.
+dst_host_rerror_rate: continuous.
+dst_host_srv_rerror_rate: continuous.
+
+0,tcp,http,SF,181,5450,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,8,8,0.00,0.00,0.00,0.00,1.00,0.00,0.00,9,9,1.00,0.00,0.11,0.00,0.00,0.00,0.00,0.00,normal.
+0,tcp,http,SF,239,486,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,8,8,0.00,0.00,0.00,0.00,1.00,0.00,0.00,19,19,1.00,0.00,0.05,0.00,0.00,0.00,0.00,0.00,normal.
+0,tcp,http,SF,235,1337,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,8,8,0.00,0.00,0.00,0.00,1.00,0.00,0.00,29,29,1.00,0.00,0.03,0.00,0.00,0.00,0.00,0.00,normal.
+0,tcp,http,SF,219,1337,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,6,6,0.00,0.00,0.00,0.00,1.00,0.00,0.00,39,39,1.00,0.00,0.03,0.00,0.00,0.00,0.00,0.00,normal.
+0,tcp,http,SF,217,2032,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,6,6,0.00,0.00,0.00,0.00,1.00,0.00,0.00,49,49,1.00,0.00,0.02,0.00,0.00,0.00,0.00,0.00,normal.
+0,tcp,http,SF,217,2032,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,6,6,0.00,0.00,0.00,0.00,1.00,0.00,0.00,59,59,1.00,0.00,0.02,0.00,0.00,0.00,0.00,0.00,normal.
+0,tcp,private,S0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,237,7,1.00,1.00,0.00,0.00,0.03,0.07,0.00,255,7,0.03,0.08,0.00,0.00,1.00,1.00,0.00,0.00,neptune.
+0,tcp,private,S0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,246,9,1.00,1.00,0.00,0.00,0.04,0.07,0.00,255,9,0.04,0.08,0.00,0.00,1.00,1.00,0.00,0.00,neptune.
+0,tcp,private,S0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,255,10,1.00,1.00,0.00,0.00,0.04,0.06,0.00,255,10,0.04,0.07,0.00,0.00,1.00,1.00,0.00,0.00,neptune.

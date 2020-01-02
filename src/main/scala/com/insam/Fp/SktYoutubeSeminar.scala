@@ -80,8 +80,8 @@ object SktYoutubeSeminar {
     //https://knight76.tistory.com/entry/scala-%EB%B6%80%EB%B6%84-%ED%95%A8%EC%88%98-%EC%BB%A4%EB%A7%81
     def plus(a:Int,b:Int) : Int = {a+b}
 
-    val plus10 = plus(10,_)
-    println(plus10(5))
+//    val plus10 = plus(10,_)
+//    println(plus10(5))
 
   }
 
