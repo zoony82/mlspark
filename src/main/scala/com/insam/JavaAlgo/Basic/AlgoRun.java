@@ -9,15 +9,15 @@ public class AlgoRun {
 		
 		
 		int intResult;
-
-
+//
+//
 //		// 1. Iterations
 //		//양의정수를 받아서 바이너리열로 변환 했을 때, 가장 긴 1 사이의 갭을 구해라.
 //		System.out.println("BinaryGap");
 //		BinaryGap binary = new BinaryGap();
 //		intResult = binary.solution(3015);
 //		System.out.println(intResult);
-//
+
 //		// 2. Arrays
 //		// 정수의 배열에서 홀수로 존재하는 정수를 찾아내라
 //		System.out.println("OddOccurencesInArray");
@@ -35,24 +35,24 @@ public class AlgoRun {
 //
 
 //
-		// 3. Time Complexity
-		// 1부터 시작되는 정수들의 배열에서, 딱 1개 숫자가 등장하지 않음, 그걸 찾아라
-		PermMissingElem missing = new PermMissingElem();
-		int[] temp = {2,3,5,6,1};
-		int ret = missing.solution(temp);
-		System.out.print(ret);
-//
 //		// 3. Time Complexity
-//		// 정수 배열을 두 구간으로 쪼갯을 때, 구간별 합의 차가 가장 적은 곳 찾기
+		// 1부터 시작되는 정수들의 배열에서, 딱 1개 숫자가 등장하지 않음, 그걸 찾아라
+//		PermMissingElem missing = new PermMissingElem();
+//		int[] temp = {2,3,5,6,1};
+//		int ret = missing.solution(temp);
+//		System.out.print(ret);
+//
+		// 3. Time Complexity
+		// 정수 배열을 두 구간으로 쪼갯을 때, 구간별 합의 차가 가장 적은 곳 찾기
 //		TapeEquilbrium tape = new TapeEquilbrium();
 //		int[] temp = {2,3,5,6,1};
 //		int ret = tape.solution(temp);
 //		System.out.print(String.valueOf(ret));
-//
+
 //		// 3. Time Complexity
 //
 //		// 4. Counting Elements
-//		// 정수 배열이 1부터 존재할때, 순열인지 확인하기
+		// 정수 배열이 1부터 존재할때, 순열인지 확인하기
 //		Permheck perm = new Permheck();
 //		int[] temp = {2,3,5,6,1,4};
 //		int ret = perm.solution(temp);
@@ -63,7 +63,7 @@ public class AlgoRun {
 //		CountDiv cd = new CountDiv();
 //		int res = cd.solution(6, 11, 2);
 //		System.out.println(res);
-//
+
 //		// 6. Sorting
 //		// 정수의 배열에서 3개를 골라서 곱했을때 가장 큰 수를 구해라
 //		MaxProductOfThree mpo = new MaxProductOfThree();
@@ -98,15 +98,15 @@ public class AlgoRun {
 //
 //
 //		// 9. Maximum slice problem
-//		// MaxProfit
-//		// Given a log of stock prices compute the maximum possible earning.
-//		// 주식을 언제 사서 언제 팔게 되는데 이때 낼 수 있는 최대 이익은 얼마인가
-//
+		// MaxProfit
+		// Given a log of stock prices compute the maximum possible earning.
+		// 주식을 언제 사서 언제 팔게 되는데 이때 낼 수 있는 최대 이익은 얼마인가
+
 //		MaxProfit mpf = new MaxProfit();
 //		int[] arr = {23171, 21011, 21123, 21366, 21013, 21367};
 //		int temp = mpf.solution(arr);
 //		System.out.println(temp);
-//
+
 //
 //
 //
@@ -160,6 +160,9 @@ public class AlgoRun {
 //		NumberSolitaire ns = new NumberSolitaire();
 //		int a = ns.solution(arr);
 //		System.out.println(a);
+
+		// kakao 추석 트래픽
+
 
 				
 	}
